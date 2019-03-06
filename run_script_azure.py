@@ -9,8 +9,8 @@ def execute_commands():
 		hatch_rate = n/10
 		time = 10+60
 
-		command = "locust --host=http://54.198.63.141/ -t "+ str(time)+"s --no-web -c "\
-		+str(n)+" -r "+str(hatch_rate)+" --csv=logs_aws/log_"+str(n)+" --port 809"
+		command = "locust --host=http://52.179.0.251/ -t "+ str(time)+"s --no-web -c "\
+		+str(n)+" -r "+str(hatch_rate)+" --csv=logs_azure/log_"+str(n)+" --port 809"
 		os.system(command)
 
 
