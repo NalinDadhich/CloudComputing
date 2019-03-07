@@ -5,7 +5,13 @@ if __name__ == "__main__":
 	platforms = ["gcp", "aws", "azure"]
 	for idx, platform in enumerate(platforms):
 		percentiles = [50, 66, 75, 80, 90, 95, 98, 99, 100, 0]
-		csv_name = "logs_"+platform+"/log_1000_distribution.csv"
+		if platform == "gcp":
+			csv_name = "logs_"+platform+"_random/log_1090_distribution.csv"
+		elif platform == "aws":
+			csv_name = "logs_"+platform+"_random/log_1150_distribution.csv"
+		else:
+			csv_name = "logs_"+platform+"_random/log_1120_distribution.csv"
+
 		csv_file = open(csv_name)
 		csv_reader = csv.reader(csv_file, delimiter=',')
 		time = []
@@ -18,11 +24,16 @@ if __name__ == "__main__":
 		plt.clf()
 		# plt.hist(time,weights=percentiles) # A bar chart
 		plt.xlabel('Time (in ms)')
-		plt.ylabel('Percentile of requests completed')
+		plt.ylabel('Percentage of requests completed')
 		plt.ylim(0, 100)
 		plt.xlim(0, time[-1])
-		# for i in range(len(time)):
-		# 	plt.hlines(bins=time[i],0,percentiles[i]) # Here you are drawing the horizontal lines
+		if platform is "gcp":
+			plt.title('Average behavior of GCP when failure first occurs')
+		elif platform is "aws":
+			plt.title('Average behavior of AWS when failure first occurs')
+		else:
+			plt.title('Average behavior of Azure when failure first occurs')
+		
 		data = time
 		for i in range(len(data)):
 			data[i] += 0.5

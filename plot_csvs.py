@@ -35,7 +35,7 @@ def extract_params(csv_file, platform):
 if __name__ == "__main__":
 	platforms = ["gcp", "aws", "azure"]
 	for idx, platform in enumerate(platforms):
-		num_clients = [50, 100, 200, 300, 400, 500, 700, 800, 850, 900, 950, 1000, 1020, 1040, 1050, 1060, 1080, 1100, 1120, 1140, 1150, 1160, 1180, 1200, 1220, 1240, 1250, 1260, 1280, 1300, 1320, 1340, 1350, 1360, 1380, 1400, 1420, 1440, 1450, 1460, 1480, 1500, 1600, 1700, 1800, 1900, 2000]
+		num_clients = [50, 100, 300, 500, 700, 800, 900, 1000, 1030, 1060, 1090, 1120, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1360, 1390, 1420, 1450, 1480, 1510, 1600]
 		for n in num_clients:
 			csv_name = "logs_"+platform+"/log_"+str(n)+"_requests.csv"
 			csv_file = open(csv_name)
