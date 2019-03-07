@@ -1,5 +1,5 @@
 # CloudComputing
-locustfile.py - It contains the configuration of the locust framework used in our code.
+<b>locustfile.py</b> - It contains the configuration of the locust framework used in our code.
 
 
 plot_csvs.py - Contains the code to plot the following characteristics for all the different cloud computing platforms:
